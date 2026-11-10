@@ -1,0 +1,6 @@
+{
+  "name": "Aadhya Gorkha Travels - Sikkim, Darjeeling & Northeast Tours",
+  "description": "Premier travel agency in Siliguri offering domestic and international tour packages, Sikkim and Darjeeling tours, Bhutan & Nepal trips, and premium taxi car rental services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
