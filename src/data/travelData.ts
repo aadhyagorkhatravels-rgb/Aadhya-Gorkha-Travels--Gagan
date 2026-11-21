@@ -104,7 +104,7 @@ export const DESTINATIONS: Destination[] = [
     shortDescription: "Tranquil mountain haven offering the closest, most intimate frontal views of Kanchenjunga and sacred Buddhist heritage.",
     longDescription: "Nestled in West Sikkim, Pelling is adored for its quiet pine-scented ambiance, ancient monasteries like Pemayangtse, India's first skywalk, and spellbinding views of snow peaks at sunrise.",
     highlights: ["Pelling Glass Skywalk", "Pemayangtse Monastery", "Rabdentse Ruins", "Khecheopalri Sacred Lake", "Kanchenjunga Waterfalls"],
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80",
+    image: "/src/assets/images/himalayan_luxury_resort_1794311636712.jpg",
     popularFor: "Closest Kanchenjunga Vistas, Skywalk & Monasteries",
   },
   {
@@ -195,7 +195,7 @@ export const DESTINATIONS: Destination[] = [
     shortDescription: "The fabled Abode of Clouds featuring mystical living root bridges, crystal-clear Dawki waters, and roaring waterfalls.",
     longDescription: "Meghalaya is nature at its most poetic: emerald hills, mist-shrouded limestone caves, Asia's cleanest village Mawlynnong, and boat rides on the mirror-like Umngot River.",
     highlights: ["Double Decker Living Root Bridge", "Umngot River Boat Ride in Dawki", "Nohkalikai Falls Cherrapunji", "Mawlynnong Clean Village"],
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80",
+    image: "/src/assets/images/darjeeling_tea_gardens_1794309511066.jpg",
     popularFor: "Living Root Bridges, Waterfalls & Crystal Rivers",
   },
   {
@@ -858,7 +858,7 @@ export const VEHICLES: Vehicle[] = [
     terrainSuitability: "Major Mountain Highways & Inter-State Circuits",
     bestFor: "Corporate Retreats, Wedding Groups & Large Family Caravans",
     features: ["Pushback Ergonomic Seats", "Spacious Aisle Space", "Surround Music System", "Experienced Long-Haul Crew"],
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+    image: "/src/assets/images/himalayan_tempo_traveller_1794311636897.jpg",
   },
 ];
 
@@ -991,12 +991,12 @@ export const HOTELS: HotelListing[] = [
     viewType: "Frontal Snow Peaks & Monastic Valley",
     amenities: ["Rooftop Observation Deck", "Traditional Wooden Accents", "Doctor on Call", "Buffet Breakfast"],
     description: "Boutique hillside hotel minutes away from the famous Pelling Skywalk and Pemayangtse Monastery.",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+    image: "/src/assets/images/himalayan_luxury_resort_1794311636712.jpg",
   },
   {
     id: "hotel-lachung-homestay",
     name: "Lachung Snow Valley Pine Homestay",
-    destination: "Lachung (North Sikkim)",
+    destination: "Lachung",
     category: "Homestay",
     rating: 4,
     viewType: "Snow Capped Mountain Streams",
@@ -1025,6 +1025,39 @@ export const HOTELS: HotelListing[] = [
     amenities: ["Piped Hot Water", "Clean Bedding", "Room Service", "Walking Distance to Mall", "Luggage Storage"],
     description: "Clean, comfortable, and wallet-friendly accommodations located just a 3-minute stroll from Chowrasta.",
     image: "/src/assets/images/darjeeling_tea_gardens_1794309511066.jpg",
+  },
+  {
+    id: "hotel-gangtok-boutique",
+    name: "The Nor-Khill Heritage Palace",
+    destination: "Gangtok",
+    category: "Boutique",
+    rating: 5,
+    viewType: "Frontal Kanchenjunga & Monastic Valley",
+    amenities: ["Royal Chogyal Architecture", "Traditional Thangka Art", "Organic Cuisine", "Spa & Sauna"],
+    description: "Historic boutique palace hotel preserving royal Sikkimese architecture and hospitality amidst cedar pine woods.",
+    image: "/src/assets/images/hero_himalayas_kanchenjunga_1794309509093.jpg",
+  },
+  {
+    id: "hotel-darjeeling-homestay",
+    name: "Happy Valley Organic Tea Planter's Homestay",
+    destination: "Darjeeling",
+    category: "Homestay",
+    rating: 5,
+    viewType: "Rolling Tea Terraces & Mountain Sunrise",
+    amenities: ["Fresh Tea Plucking Experience", "Local Organic Gorkha Cuisine", "Cozy Fireplace", "Terrace Gazebo"],
+    description: "Stay inside an authentic operational organic tea estate overlooking sunrise over the Kanchenjunga massif.",
+    image: "/src/assets/images/darjeeling_tea_gardens_1794309511066.jpg",
+  },
+  {
+    id: "hotel-pelling-luxury",
+    name: "Pelling Summit Mount Kanchenjunga Resort",
+    destination: "Pelling",
+    category: "Luxury",
+    rating: 5,
+    viewType: "Panoramic 180° Kanchenjunga Snow Range",
+    amenities: ["Private Balconies in All Rooms", "Heated Swimming Pool", "All-Day Dining", "Skywalk Transfer"],
+    description: "Ultra-luxury hillside resort offering the most dramatic, uninterrupted views of Mount Kanchenjunga in Sikkim.",
+    image: "/src/assets/images/himalayan_luxury_resort_1794311636712.jpg",
   },
 ];
 
@@ -1111,6 +1144,24 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     image: "/src/assets/images/darjeeling_tea_gardens_1794309511066.jpg",
     description: "Historic spiral railway track offering unmatched 360-degree vistas of the hills.",
   },
+  {
+    id: "g9",
+    title: "Luxury Mountain Resort Balcony with Kanchenjunga View",
+    location: "Pelling / Darjeeling",
+    category: "kanchenjunga",
+    categoryLabel: "Kanchenjunga Views",
+    image: "/src/assets/images/himalayan_luxury_resort_1794311636712.jpg",
+    description: "Sip morning Darjeeling first-flush tea from a private teak wood balcony overlooking Mount Kanchenjunga.",
+  },
+  {
+    id: "g10",
+    title: "Mountain Tourist Mini Coach Overlook",
+    location: "Himalayan Mountain Pass",
+    category: "culture",
+    categoryLabel: "Himalayan Roads",
+    image: "/src/assets/images/himalayan_tempo_traveller_1794311636897.jpg",
+    description: "Spacious luxury Tempo Traveller navigating mountain ridges for group and corporate holiday excursions.",
+  },
 ];
 
 export interface Testimonial {
@@ -1118,6 +1169,7 @@ export interface Testimonial {
   name: string;
   location: string;
   destinationVisited: string;
+  tripType: string;
   rating: number;
   reviewDate: string;
   feedback: string;
@@ -1129,35 +1181,66 @@ export const SAMPLE_TESTIMONIALS: Testimonial[] = [
     name: "Rajesh & Meera Sharma",
     location: "Kolkata, West Bengal",
     destinationVisited: "Darjeeling & Gangtok Golden Tour (5N / 6D)",
+    tripType: "Family Holiday",
     rating: 5,
     reviewDate: "November 2025",
-    feedback: "Aadhya Gorkha Travels arranged our family trip with exceptional attention to detail. The Innova vehicle was spotless, driver was exceptionally courteous on steep curves, and our Kanchenjunga view hotel in Darjeeling was breathtaking. Prompt WhatsApp support throughout!",
+    feedback:
+      "Aadhya Gorkha Travels arranged our family trip with exceptional attention to detail. The Innova vehicle was spotless, driver was exceptionally courteous on steep curves, and our Kanchenjunga view hotel in Darjeeling was breathtaking. Prompt WhatsApp support throughout!",
   },
   {
     id: "t2",
     name: "Dr. Ananya Mukherjee",
     location: "Bengaluru, Karnataka",
     destinationVisited: "North Sikkim & Yumthang Snow Circuit (5N / 6D)",
+    tripType: "Alpine Expedition",
     rating: 5,
     reviewDate: "December 2025",
-    feedback: "Visiting Gurudongmar Lake and Zero Point seemed daunting with permits, but the team at Salugara handled everything smoothly. Clear guidance, transparent pricing, and wonderful local homestays in Lachung. Highly recommended for Northeast travel!",
+    feedback:
+      "Visiting Gurudongmar Lake and Zero Point seemed daunting with permits, but the team at Salugara handled everything smoothly. Clear guidance, transparent pricing, and wonderful local homestays in Lachung. Highly recommended for Northeast travel!",
   },
   {
     id: "t3",
     name: "Vikram & Sneha Singhania",
     location: "Mumbai, Maharashtra",
     destinationVisited: "Bhutan Cultural Wonder (5N / 6D)",
+    tripType: "Cross-Border Tour",
     rating: 5,
     reviewDate: "January 2026",
-    feedback: "We opted for their Bhutan package starting from Bagdogra. Everything from the border pickup at Phuentsholing, hotel bookings in Thimphu & Paro, to the Tiger's Nest hike guide was flawless. Truly the local experts you can rely on.",
+    feedback:
+      "We opted for their Bhutan package starting from Bagdogra. Everything from the border pickup at Phuentsholing, hotel bookings in Thimphu & Paro, to the Tiger's Nest hike guide was flawless. Truly the local experts you can rely on.",
   },
   {
     id: "t4",
     name: "Amitav & Suniti Das",
     location: "Guwahati, Assam",
     destinationVisited: "Pelling & Ravangla Family Retreat (4N / 5D)",
+    tripType: "Senior-Friendly Trip",
     rating: 5,
     reviewDate: "February 2026",
-    feedback: "The taxi service from NJP was right on time with a warm welcome. Traveling with my elderly parents, comfort was our top priority and Aadhya Gorkha Travels delivered 100%. Transparent pricing with zero hidden costs.",
+    feedback:
+      "The taxi service from NJP was right on time with a warm welcome. Traveling with my elderly parents, comfort was our top priority and Aadhya Gorkha Travels delivered 100%. Transparent pricing with zero hidden costs.",
+  },
+  {
+    id: "t5",
+    name: "Rohan & Priya Deshmukh",
+    location: "Pune, Maharashtra",
+    destinationVisited: "Darjeeling & Kalimpong Honeymoon Escape (4N / 5D)",
+    tripType: "Honeymoon Package",
+    rating: 5,
+    reviewDate: "March 2026",
+    feedback:
+      "Our honeymoon in Darjeeling and Kalimpong was unforgettable. From Tiger Hill sunrise tea to peaceful ridge walks in Deolo, every transfer and boutique room upgrade exceeded our expectations.",
+  },
+  {
+    id: "t6",
+    name: "Sandeep Kulkarni & Group",
+    location: "Hyderabad, Telangana",
+    destinationVisited: "Meghalaya & Kaziranga Heritage Trail (6N / 7D)",
+    tripType: "Private Group Tour",
+    rating: 5,
+    reviewDate: "April 2026",
+    feedback:
+      "Traveling as a group of 10 friends, we booked a luxury Tempo Traveller through their Siliguri desk. Immaculate coordination across Shillong, Cherrapunji, and Dawki with zero last-minute surprises.",
   },
 ];
+

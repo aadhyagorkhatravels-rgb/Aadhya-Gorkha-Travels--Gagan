@@ -15,6 +15,7 @@ import { HotelsPage } from "./pages/HotelsPage";
 import { GalleryPage } from "./pages/GalleryPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
+import { DriveDocsPage } from "./pages/DriveDocsPage";
 
 // Scroll to top helper on navigation
 const ScrollToTop: React.FC = () => {
@@ -22,13 +23,17 @@ const ScrollToTop: React.FC = () => {
 
   useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
+      const targetId = hash.replace("#", "");
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname, hash]);
 
   return null;
@@ -51,7 +56,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-[#FAF8F2] text-[#202923] selection:bg-[#D6A84F]/30 selection:text-[#123D32]">
+      <div className="min-h-screen flex flex-col bg-white text-[#0F1E3A] selection:bg-[#E2A829]/30 selection:text-[#0A2D6E]">
         {/* Sticky Header Navigation */}
         <Navbar onOpenBooking={handleOpenBooking} />
 
@@ -67,6 +72,7 @@ export default function App() {
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/about" element={<AboutPage onOpenBooking={handleOpenBooking} />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/drive-docs" element={<DriveDocsPage />} />
             {/* Catch-all fallback */}
             <Route path="*" element={<HomePage onOpenBooking={handleOpenBooking} />} />
           </Routes>

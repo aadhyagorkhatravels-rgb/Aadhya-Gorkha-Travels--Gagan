@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, MessageCircle, Mail, CheckCircle2, Phone, Calendar, User, Users, MapPin } from "lucide-react";
 import { COMPANY_INFO, getWhatsAppUrl, DESTINATIONS } from "../data/travelData";
+import { BrandLogo } from "./BrandLogo";
 
 export interface BookingPrefill {
   title?: string;
@@ -103,13 +104,13 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
     setSubmitted(true);
 
     const waUrl = getWhatsAppUrl(formattedMessage);
-    // Open WhatsApp directly
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
   const handleEmailSubmit = () => {
     if (!validate()) return;
     const formattedMessage = constructFormattedMessage();
+    setLastGeneratedMessage(formattedMessage);
     const mailtoUrl = `mailto:${COMPANY_INFO.email}?subject=${encodeURIComponent(
       `Travel Enquiry from ${fullName}: ${enquiryType} - ${destination}`
     )}&body=${encodeURIComponent(formattedMessage)}`;
@@ -118,21 +119,24 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-      <div className="relative bg-[#FAF8F2] border border-[#D6A84F]/40 rounded-xl max-w-lg w-full shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#071F4D]/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+      <div className="relative bg-white border border-[#E2A829]/45 rounded-xl max-w-lg w-full shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         {/* Modal Header */}
-        <div className="bg-[#123D32] px-6 py-4 text-white flex items-center justify-between border-b border-[#D6A84F]/30">
-          <div>
-            <span className="text-[10px] tracking-wider font-semibold text-[#D6A84F] uppercase">
-              Aadhya Gorkha Travels · Siliguri
-            </span>
-            <h3 className="font-serif text-lg font-semibold text-white">
-              {prefill?.title ? prefill.title : "Plan Your Himalayan Journey"}
-            </h3>
+        <div className="bg-himalayan-navy px-6 py-4 text-white flex items-center justify-between border-b border-[#E2A829]/35">
+          <div className="flex items-center gap-3">
+            <BrandLogo variant="modal" />
+            <div>
+              <span className="text-[10px] tracking-wider font-semibold text-[#F3C853] uppercase">
+                Aadhya Gorkha Travels · Siliguri
+              </span>
+              <h3 className="font-serif text-lg font-semibold text-white leading-tight">
+                {prefill?.title ? prefill.title : "Plan Your Himalayan Journey"}
+              </h3>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1 rounded-md text-white/75 hover:text-white hover:bg-white/10 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -146,10 +150,10 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
               <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="font-serif text-xl font-bold text-[#123D32]">
+              <h4 className="font-serif text-xl font-bold text-[#0A2D6E]">
                 Enquiry Details Prepared!
               </h4>
-              <p className="text-sm text-neutral-700 max-w-sm mx-auto leading-relaxed">
+              <p className="text-sm text-slate-700 max-w-sm mx-auto leading-relaxed">
                 Your enquiry has been formatted for instant dispatch to our Siliguri travel team.
                 If WhatsApp did not open automatically, you can click below:
               </p>
@@ -168,16 +172,16 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                 <button
                   type="button"
                   onClick={handleEmailSubmit}
-                  className="w-full py-2.5 px-4 bg-white border border-neutral-300 hover:bg-neutral-50 text-neutral-800 font-medium rounded-lg text-sm flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-4 bg-[#F6F9FC] border border-slate-300 hover:bg-slate-100 text-[#0A2D6E] font-medium rounded-lg text-sm flex items-center justify-center gap-2"
                 >
-                  <Mail className="w-4 h-4 text-[#D6A84F]" />
+                  <Mail className="w-4 h-4 text-[#E2A829]" />
                   <span>Send via Email ({COMPANY_INFO.email})</span>
                 </button>
               </div>
 
-              <div className="pt-4 border-t border-neutral-200 text-xs text-neutral-500">
+              <div className="pt-4 border-t border-slate-200 text-xs text-slate-500">
                 Need urgent assistance? Call us directly at{" "}
-                <a href="tel:+918670374242" className="text-[#123D32] font-semibold underline">
+                <a href="tel:+918670374242" className="text-[#0A2D6E] font-semibold underline">
                   +91 8670374242
                 </a>
               </div>
@@ -185,7 +189,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
               <div className="pt-2">
                 <button
                   onClick={onClose}
-                  className="text-xs text-neutral-600 hover:text-neutral-900 underline"
+                  className="text-xs text-slate-600 hover:text-[#0A2D6E] underline"
                 >
                   Close Window
                 </button>
@@ -193,14 +197,14 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
             </div>
           ) : (
             <form onSubmit={handleWhatsAppSubmit} className="space-y-4">
-              <p className="text-xs text-neutral-600">
+              <p className="text-xs text-slate-600">
                 Fill in your travel preferences below to receive a customized day-wise itinerary and the best rate quote directly on WhatsApp or Email.
               </p>
 
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                  <User className="w-3.5 h-3.5 text-[#D6A84F]" />
+                <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                  <User className="w-3.5 h-3.5 text-[#E2A829]" />
                   <span>Full Name *</span>
                 </label>
                 <input
@@ -209,7 +213,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Ramesh Chandra"
-                  className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                  className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                 />
                 {errors.fullName && <p className="text-xs text-red-600 mt-1">{errors.fullName}</p>}
               </div>
@@ -217,8 +221,8 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
               {/* Phone & Email Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                    <Phone className="w-3.5 h-3.5 text-[#D6A84F]" />
+                  <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                    <Phone className="w-3.5 h-3.5 text-[#E2A829]" />
                     <span>WhatsApp / Phone *</span>
                   </label>
                   <input
@@ -227,7 +231,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="+91 9876543210"
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   />
                   {errors.phoneNumber && (
                     <p className="text-xs text-red-600 mt-1">{errors.phoneNumber}</p>
@@ -235,8 +239,8 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                    <Mail className="w-3.5 h-3.5 text-[#D6A84F]" />
+                  <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                    <Mail className="w-3.5 h-3.5 text-[#E2A829]" />
                     <span>Email Address *</span>
                   </label>
                   <input
@@ -245,7 +249,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                     value={emailAddress}
                     onChange={(e) => setEmailAddress(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   />
                   {errors.emailAddress && (
                     <p className="text-xs text-red-600 mt-1">{errors.emailAddress}</p>
@@ -256,14 +260,14 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
               {/* Destination & Service Type */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#D6A84F]" />
+                  <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-[#E2A829]" />
                     <span>Destination *</span>
                   </label>
                   <select
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   >
                     {DESTINATIONS.map((d) => (
                       <option key={d.id} value={d.name}>
@@ -276,13 +280,13 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                  <label className="block text-xs font-semibold text-slate-800 mb-1">
                     Enquiry Type
                   </label>
                   <select
                     value={enquiryType}
                     onChange={(e) => setEnquiryType(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   >
                     <option value="Tour Package">Complete Tour Package</option>
                     <option value="Taxi / Car Rental">Taxi / Car Rental</option>
@@ -297,8 +301,8 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
               {/* Travel Date & Travellers */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-[#D6A84F]" />
+                  <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-[#E2A829]" />
                     <span>Approx. Travel Date *</span>
                   </label>
                   <input
@@ -306,7 +310,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                     required
                     value={travelDate}
                     onChange={(e) => setTravelDate(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   />
                   {errors.travelDate && (
                     <p className="text-xs text-red-600 mt-1">{errors.travelDate}</p>
@@ -314,14 +318,14 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-800 mb-1 flex items-center gap-1">
-                    <Users className="w-3.5 h-3.5 text-[#D6A84F]" />
+                  <label className="block text-xs font-semibold text-slate-800 mb-1 flex items-center gap-1">
+                    <Users className="w-3.5 h-3.5 text-[#E2A829]" />
                     <span>Number of Travellers</span>
                   </label>
                   <select
                     value={numberOfTravellers}
                     onChange={(e) => setNumberOfTravellers(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                    className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                   >
                     <option value="1 Adult (Solo)">1 Adult (Solo)</option>
                     <option value="2 Adults (Couple)">2 Adults (Couple)</option>
@@ -334,7 +338,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
 
               {/* Remarks */}
               <div>
-                <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                <label className="block text-xs font-semibold text-slate-800 mb-1">
                   Specific Requests or Itinerary Preferences (Optional)
                 </label>
                 <textarea
@@ -342,7 +346,7 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                   value={remarks}
                   onChange={(e) => setRemarks(e.target.value)}
                   placeholder="e.g. Need Innova Crysta, Kanchenjunga view room, Nathula pass permit, etc."
-                  className="w-full px-3 py-2 bg-white border border-neutral-300 rounded-md text-sm text-neutral-900 focus:outline-none focus:ring-1 focus:ring-[#123D32] focus:border-[#123D32]"
+                  className="w-full px-3 py-2 bg-[#F6F9FC] border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#0A2D6E] focus:border-[#0A2D6E]"
                 />
               </div>
 
@@ -359,14 +363,14 @@ export const QuickEnquiryModal: React.FC<QuickEnquiryModalProps> = ({
                 <button
                   type="button"
                   onClick={handleEmailSubmit}
-                  className="py-2.5 px-4 bg-[#123D32] hover:bg-[#245B49] text-white font-semibold rounded-md text-sm flex items-center justify-center gap-2 shadow transition-colors"
+                  className="py-2.5 px-4 bg-[#0A2D6E] hover:bg-[#13469E] text-white font-semibold rounded-md text-sm flex items-center justify-center gap-2 shadow transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#D6A84F]" />
+                  <Mail className="w-4 h-4 text-[#F3C853]" />
                   <span>Send Email</span>
                 </button>
               </div>
 
-              <div className="text-[11px] text-neutral-500 text-center pt-1">
+              <div className="text-[11px] text-slate-500 text-center pt-1">
                 Direct assistance from our registered office at Salugara, Siliguri. No automated spam.
               </div>
             </form>

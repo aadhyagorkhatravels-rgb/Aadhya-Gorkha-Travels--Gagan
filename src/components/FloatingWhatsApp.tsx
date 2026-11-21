@@ -12,17 +12,17 @@ export const FloatingWhatsApp: React.FC = () => {
     <div className="fixed bottom-5 right-5 z-40 flex items-end flex-col gap-2">
       {/* Friendly Tooltip Card */}
       {showTooltip && (
-        <div className="bg-white border border-neutral-200 shadow-xl rounded-xl p-3 max-w-xs text-xs text-neutral-800 relative animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="bg-white border border-slate-200 shadow-xl rounded-xl p-3 max-w-xs text-xs text-slate-800 relative animate-in fade-in slide-in-from-bottom-2 duration-300">
           <button
             onClick={() => setShowTooltip(false)}
-            className="absolute top-1.5 right-1.5 p-1 text-neutral-400 hover:text-neutral-700"
+            className="absolute top-1.5 right-1.5 p-1 text-slate-400 hover:text-slate-700"
             aria-label="Dismiss message"
           >
             <X className="w-3.5 h-3.5" />
           </button>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-[#123D32]">Siliguri Travel Desk Online</span>
+          <div className="flex items-center gap-1.5 mb-1 text-[#0A2D6E]">
+            <MessageCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="font-semibold text-xs">Siliguri Travel Desk</span>
           </div>
           <p className="text-neutral-600 leading-snug">
             Need instant itinerary quotes or custom car rental rates? Chat directly with us on WhatsApp.

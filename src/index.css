@@ -5,31 +5,69 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-display: "Cinzel", serif;
 
-  --color-brand-forest: #123D32;
-  --color-brand-mountain: #245B49;
-  --color-brand-gold: #D6A84F;
-  --color-brand-cream: #FAF8F2;
-  --color-brand-charcoal: #202923;
-  --color-brand-lightgold: #F3E5C8;
+  /* Official Brand Palette extracted directly from Aadhya Gorkha Travels logo */
+  --color-brand-navy: #0A2D6E;
+  --color-brand-navy-deep: #071F4D;
+  --color-brand-royal: #13469E;
+  --color-brand-gold: #E2A829;
+  --color-brand-gold-light: #F3C853;
+  --color-brand-gold-deep: #B88010;
+  --color-brand-snow: #FFFFFF;
+  --color-brand-mist: #F6F9FC;
+  --color-brand-ink: #0F1E3A;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #0f1e3a;
 }
 
-/* Custom scrollbar */
+/* Subtle Alpine White -> Ice Mist canvas texture */
+.bg-alpine-canvas {
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 50%, #ffffff 100%);
+}
+
+/* Deep Royal Blue Mountain Horizon backdrop with subtle sunlit gold glow */
+.bg-himalayan-navy {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(226, 168, 41, 0.16), transparent 48%),
+    linear-gradient(135deg, #071f4d 0%, #0a2d6e 55%, #13469e 100%);
+}
+
+/* Metallic Sun Gold Gradient Button surface */
+.bg-metallic-gold {
+  background: linear-gradient(135deg, #f4cc5a 0%, #e2a829 52%, #c98f16 100%);
+}
+
+.bg-metallic-gold:hover {
+  background: linear-gradient(135deg, #f7d674 0%, #eab437 52%, #d4991e 100%);
+}
+
+/* Tapered Gold Spear Accent Rule inspired by the logo */
+.gold-spear-line-left {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #e2a829 100%);
+}
+
+.gold-spear-line-right {
+  height: 2px;
+  background: linear-gradient(90deg, #e2a829 0%, transparent 100%);
+}
+
+/* Custom scrollbar aligned with Royal Navy & Metallic Gold */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ede4;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #245B49;
+  background: #0a2d6e;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #123D32;
+  background: #13469e;
 }
